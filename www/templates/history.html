@@ -1,0 +1,111 @@
+<ion-view view-title="History"> <ion-content>
+<h1>History</h1>
+<div class="row">
+	<div class="col">
+		<div class="row">
+			<div class="col-50" align="center">
+				<select id="selectGroup" class="form-control" name="groupList"
+					ng-model="groupname" ng-change="fetchDevicelist(groupname)">
+					<option value="" selected class="disable_select">- -
+						Select Group - -</option>
+					<option ng-repeat="option in groupList" value="{{ option.gid }}">{{option.gid}}</option>
+				</select>
+				<!-- <input list="grouplist" class="form-control" name="groupList"
+					id="groupNamelist" ng-model="groupname"
+					ng-change="fetchDevicelist(groupname)" placeholder="Select Group" />
+				<datalist id="grouplist">
+					<option ng-repeat="option in groupList" value="{{ option.gid }}">{{
+						option.gname }}</option>
+				</datalist> -->
+			</div>
+			<div class="col-50" align="center">
+				<select id="selectDevice" class="form-control" name="deviceList"
+					ng-model="hist.deviceId" ng-change="deviceSelected(hist.deviceId)">
+					<option value="" selected class="disable_select">- -
+						Select Vechicle - -</option>
+					<option ng-repeat="option in deviceList" value="{{ option }}">{{option}}</option>
+				</select>
+				<!-- <input list="devicelist" class="form-control" name="deviceList"
+					id="deviceIdlist" ng-model="hist.deviceId"
+					ng-change="deviceSelected(hist.deviceId)"
+					placeholder="Select Vechicle" />
+				<datalist id="devicelist">
+					<option ng-repeat="option in deviceList" value="{{ option }}">{{
+						option}}</option>
+				</datalist> -->
+			</div>
+		</div>
+		<section ng-hide="deviceSelected">
+			<form name=historyForm>
+				<div class="row">
+					<div class="col-50" align="center">
+						<label>Start Date</label>
+						<p>
+							<input id="startDt" name="both" type="text"
+								ng-click="getCalendar($event, 'both')" ng-model="hist.startDate"
+								placeholder="From" ng-required="true" value="24/02/2016"/>
+						</p>
+					</div>
+					<div class="col-50" align="center">
+						<label>Select Date after {{hist.startDate}}</label>
+						<p>
+							<input id="endDt" name="both" type="text"
+								ng-click="getCalendar($event, 'both')" ng-model="hist.endDate"
+								placeholder="To" ng-required="true"  value="24/02/2016"/>
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col col-33 col-offset-33">
+						<button class="button button-block" ng-click="showHistory(hist)">Fetch
+							History</button>
+					</div>
+				</div>
+			</form>
+		</section>
+		<div class="row">
+			<div class="col">
+				<div ng-hide="noData">
+					<h1>Kindly Check For other Dates</h1>
+				</div>
+				<div ng-hide="yoData">
+					<section class="tableSection">
+						<div class="hist-container">
+							<table class="table">
+								<thead>
+									<tr class="header">
+										<th>Slno
+											<div>Slno</div>
+										</th>
+										<th>Latitude
+											<div>Latitude</div>
+										</th>
+										<th>Longitude
+											<div>Longitude</div>
+										</th>
+										<th>Speed in KMPH
+											<div>Speed in KMPH</div>
+										</th>
+										<th>Date Time
+											<div>Date Time</div>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat='x in histData.values'>
+										<td>{{$index+1}}</td>
+										<td>{{x.lat}}</td>
+										<td>{{x.long}}</td>
+										<td>{{x.Velocity}}</td>
+										<td>{{getDate(x.ts)}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</ion-content> </ion-view>

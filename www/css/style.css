@@ -1,0 +1,52 @@
+/* Empty. Add your own CSS if you like */
+/*============== History Table ================*/
+.tableSection {
+  position: relative;
+  border: 1px solid #000;
+  padding-top: 37px;
+  background: #500;
+}
+.hist-container {
+  overflow-y: auto;
+  height: 200px;
+}
+.hist-container > table {
+  border-spacing: 0;
+  background:#fff;
+  margin-bottom:0px;
+  width:100%;
+}
+.hist-container > td + td {
+  border-left:1px solid #eee;
+}
+.hist-container > td, th {
+  border-bottom:1px solid #eee;
+  background: #ddd;
+  color: #000;
+  padding: 10px 25px;
+}
+.hist-container table > thead > tr > th {
+  height: 0;
+  line-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: transparent;
+  border: none;
+  white-space: nowrap;
+}
+.hist-container table > thead > tr > th > div{
+  position: absolute;
+  background: transparent;
+  color: #fff;
+  padding: 9px 25px;
+  top: 0;
+  margin-left: -25px;
+  line-height: normal;
+  border-left: 1px solid #800;
+}
+.hist-container > th:first-child div{
+  border: none;
+}
+.angular-google-map-container { 
+  height: 100%; 
+}
