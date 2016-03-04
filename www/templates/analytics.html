@@ -1,5 +1,64 @@
 <ion-view view-title="Analytics">
-  <ion-content>
-    <h1>Analytics</h1>
-  </ion-content>
+<ion-content>
+<h1>Analytics</h1>
+<div class="row">
+	<div class="col">
+		<div class="row">
+			<div class="col" align="center">
+				<select id="selectGroup" class="form-control" name="groupList"
+				ng-model="groupname" ng-change="fetchDevicelist(groupname)">
+				<option value="" selected class="disable_select">- -
+					Select Group - -</option>
+					<option ng-repeat="option in groupList" value="{{ option.gid }}">{{option.gid}}</option>
+				</select>
+			</div>
+			<!-- <div class="col-50" align="center">
+				<select id="selectDevice" class="form-control" name="deviceList"
+				ng-model="hist.deviceId">
+				<option value="" selected class="disable_select">- -
+					Select Vechicle - -</option>
+					<option ng-repeat="option in deviceList" value="{{ option }}">{{option}}</option>
+				</select>
+			</div> -->
+		</div>
+		<div class="row">
+			<div class="col" align="center">
+				<md-radio-group ng-model="data.Analysis" ng-change="analysisChoice(data.Analysis);"> 
+						<md-radio-button class="md-primary" ng-style="{'display':'inline'}"
+						name="analysisChoice" value="1" ng-model="analysisChoiceRadio" aria-label="Speed Analysis">Speed Analysis
+						</md-radio-button> 
+						<md-radio-button ng-style="{'display':'inline'}"
+						name="analysisChoice" value="2" ng-model="analysisChoiceRadio" aria-label="Distance Analysis">Distance Analysis
+						</md-radio-button> 
+				</md-radio-group>		
+			</div>			
+		</div>
+		<div class="row">
+			<div class="col" align="center">
+				<md-radio-group ng-model="data.Duration" ng-change="durationChoice(data.Duration);"> 
+						<md-radio-button class="md-primary" ng-style="{'display':'inline'}"
+						name="durationChoice" value="1" ng-model="durationChoiceRadio" aria-label="daily">Today
+						</md-radio-button> 
+						<md-radio-button ng-style="{'display':'inline'}"
+						name="durationChoice" value="2" ng-model="durationChoiceRadio" aria-label="monthly">Current Month
+						</md-radio-button> 
+						<md-radio-button ng-style="{'display':'inline'}"
+						name="durationChoice" value="3" ng-model="durationChoiceRadio" aria-label="yearly">Current Year
+						</md-radio-button> 
+				</md-radio-group>				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div ng-hide="noanalyticsData" align="center">
+					<h1>Currently Data Not Available</h1>
+				</div>
+				<div ng-hide="analyticsData">
+					<highchart id="chart1" config="highchartsNG"></highchart>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</ion-content>
 </ion-view>

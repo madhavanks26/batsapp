@@ -5,6 +5,11 @@ batsapp.controller('batsRoute', function($scope, $http) {
 	$scope.deviceSelected=false;
 	$scope.yoData=true;
 	$scope.noData=true;
+	var centerVal=21.0000+","+78.0000;
+		$scope.historyMap = {
+			center : centerVal,			
+			zoom : 3
+		};
 	$http({
 		method : 'POST',
 		url : apiURL + 'group/list',

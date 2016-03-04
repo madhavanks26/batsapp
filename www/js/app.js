@@ -1,6 +1,6 @@
-var apiURL="http://10.1.71.114:8080/";
-var adminToken="UQ700WmLD1l1wdZ3";
-var batsapp = angular.module('BATS', ['ionic','ngMap','ngMaterial']);
+var apiURL="http://10.1.71.114:8040/";
+var adminToken="bRC7KXh561zWP7fL";
+var batsapp = angular.module('BATS', ['ionic','ngMap','ngMaterial','highcharts-ng']);
 
 
 batsapp.config(function($stateProvider, $urlRouterProvider) {
@@ -91,7 +91,8 @@ batsapp.config(function($stateProvider, $urlRouterProvider) {
     url: '/analytics',
     views: {
       'menuContent': {
-        templateUrl: 'templates/analytics.html'
+        templateUrl: 'templates/analytics.html',
+        controller:'batsAnalytics'
       }
     }
   })
